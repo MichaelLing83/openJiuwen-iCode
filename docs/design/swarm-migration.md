@@ -7,7 +7,7 @@
 
 **可迁移设计与能力面，不可整包搬实现。**
 
-iCode / Chrys 今天是层次委托（`SubAgentTools` + `SubAgentToolShell`）+ Workflows DAG，不是 peer swarm。`src/chrys` 中无 `swarm` / `TeamAgent` / `agent_teams` / `build_team` 命中。
+iCode 今天是层次委托（`SubAgentTools` + `SubAgentToolShell`）+ Workflows DAG，不是 peer swarm。源码树中无 `swarm` / `TeamAgent` / `agent_teams` / `build_team` 命中。
 
 目标形态：在现有架构上落**薄层**团队机制——Leader = 主会话 `AgentProfile`；Teammate = `SubAgentRef` 模板 + 动态 invocation；任务真相在 `service/team_board`；确定性编排映射现有 Workflows。**禁止**引入 openjiuwen `TeamAgent` / Gateway WS / `TeamManager` / pyzmq。
 
@@ -68,7 +68,7 @@ iCode / Chrys 今天是层次委托（`SubAgentTools` + `SubAgentToolShell`）+ 
 
 ### 须新写 / 不复用
 
-- openjiuwen `TeamAgent` — Chrys 不引入
+- openjiuwen `TeamAgent` — iCode 不引入
 - `team.db` / `TeamManager` — 薄 service 层 + 可选 sqlite
 - Leader 团队原生工具面（`create_task` / assign / `spawn_teammate` 等）
 - Peer messager — MVP 用任务板 + 工具结果即可
